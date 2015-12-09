@@ -1,3 +1,20 @@
-.test{
-    background-color: red;
+.comment{
+    margin-left: 50px;
+    margin-bottom: 20px;
+}
+
+.comment h6{
+    margin: 5px 0px 5px 50px;
+}
+
+.comment h4{
+    margin-bottom: 5px;
+}
+
+article .body h3{
+    margin-top: 5px;
+}
+
+article{
+    margin-bottom: 20px;
 }

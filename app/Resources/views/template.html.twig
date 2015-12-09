@@ -12,22 +12,12 @@
 
 {% block body %}
     {{ parent() }}
-    {% if app.user %} <a href="{{ path('blog_logout') }}#home">Logout</a> {% endif %}
-    
-{#    <div>{{ var% if app.user %} <a href="{{ path('blog_logout') }}#home">Logout</a> {% endif %}</div>#}
-<div>{{ dump(app.user) }}</div>
-    
-    {#{% block javascripts %}
-        {% javascripts '%kernel.root_dir%/Resources/assets/js/test.js' 'web/js/test2.js' %}
-            <script src="{{ asset_url }}" type="text/css"></script>
-        {% endjavascripts %}
-    {% endblock %}#}
-    
+    {% if app.user %} <a href="{{ path('logout') }}#home">Logout</a> {% endif %}
+        
     {% block javascripts %}
         {% javascripts output="js/test2.js"  '%kernel.root_dir%/Resources/assets/js/test.js' %}
             <script src="{{ asset_url }}"></script>
         {% endjavascripts %}
     {% endblock %}
-
     
 {% endblock %}

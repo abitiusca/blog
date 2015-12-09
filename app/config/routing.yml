@@ -4,25 +4,36 @@ app:
     
 # src/Blog/AppBundle/Resources/config/routing.yml
 
-blog_index:
+index:
     pattern: /index
-    defaults: { _controller: AppBundle:Blog:index }
+    defaults: { _controller: AppBundle:Post:index }
 
-blog_new:
-    pattern: /new
-    defaults: { _controller: AppBundle:Blog:new }
+new_post:
+    pattern: /new/post
+    defaults: { _controller: AppBundle:Post:new }
     
-    # src/User/AppBundle/Resources/config/routing.yml
+# src/User/AppBundle/Resources/config/routing.yml
 
-blog_login:
+login:
     pattern: /login
     defaults: { _controller: AppBundle:Login:login }
     
-blog_login_check:
+login_check:
     pattern: /login_check
     defaults: { _controller: AppBundle:Login:loginCheck }
     
-blog_logout:
+logout:
     pattern: /logout
     defaults: { _controller: AppBundle:Login:logout }
     
+edit_post:
+    pattern: /edit/post/{id_post}
+    defaults: { _controller: AppBundle:Post:edit }
+    
+edit_comment:
+    pattern: /edit/comment/{id_comment}
+    defaults: { _controller: AppBundle:Comment:edit }
+    
+new_comment:
+    pattern: /new/comment
+    defaults: { _controller: AppBundle:Comment:new }
