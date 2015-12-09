@@ -25,18 +25,6 @@ class LoginController extends Controller{
 
         // last username entered by the user
         $lastUsername = $authenticationUtils->getLastUsername();
-        
-//        $request = $this->getRequest();
-//        $session = $request->getSession();
-//        
-//        //get the login error if there is one
-//        if( $request->attributes->has( SecurityContext::AUTHENTICATION_ERROR )){
-//            $test = 1;
-//            $error = $request->attributes->get( SecurityContext::AUTHENTICATION_ERROR );
-//        }else{
-//            $error = $session->get( SecurityContext::AUTHENTICATION_ERROR );
-//            $session->remove(SecurityContext::AUTHENTICATION_ERROR);
-//        }
 
         return $this->render('user/login.html.twig' ,array(
             // last username entered by the user
