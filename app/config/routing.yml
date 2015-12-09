@@ -1,3 +1,28 @@
 app:
     resource: "@AppBundle/Controller/"
     type:     annotation
+    
+# src/Blog/AppBundle/Resources/config/routing.yml
+
+blog_index:
+    pattern: /index
+    defaults: { _controller: AppBundle:Blog:index }
+
+blog_new:
+    pattern: /new
+    defaults: { _controller: AppBundle:Blog:new }
+    
+    # src/User/AppBundle/Resources/config/routing.yml
+
+blog_login:
+    pattern: /login
+    defaults: { _controller: AppBundle:Login:login }
+    
+blog_login_check:
+    pattern: /login_check
+    defaults: { _controller: AppBundle:Login:loginCheck }
+    
+blog_logout:
+    pattern: /logout
+    defaults: { _controller: AppBundle:Login:logout }
+    

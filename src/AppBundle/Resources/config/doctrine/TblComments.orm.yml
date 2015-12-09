@@ -1,0 +1,26 @@
+# src/AppBundle/Resources/app/config/doctrine/TblComments.orm.yml
+AppBundle\Entity\TblComments:
+    type: entity
+    table: tb_comments
+    id:
+        id:
+            type: integer
+            generator: { strategy: AUTO }
+    fields:
+        body:
+            type: text
+        createdBy:
+            type: string
+            length: 10
+        createdDate:
+            type: datetime
+        updatedDate:
+            type: datetime
+    manyToOne:
+        tbl_posts:
+            targetEntity: TblPosts
+            #name of array that may contains many comments.  The same name as in TblComments to field "oneToMany: comments"
+            inversedBy: comments
+            joinColumn:
+                name: post_id
+                referencedColumnName: id

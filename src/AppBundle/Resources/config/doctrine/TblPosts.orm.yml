@@ -1,0 +1,26 @@
+# src/AppBundle/Resources/app/config/doctrine/TblPosts.orm.yml
+AppBundle\Entity\TblPosts:
+    type: entity
+    table: tb_posts
+    id:
+        id:
+            type: integer
+            generator: { strategy: AUTO }
+    fields:
+        title:
+            type: string
+            length: 255
+        body:
+            type: text
+        createdBy:
+            type: string
+            length: 10
+        createdDate:
+            type: datetime
+        updatedDate:
+            type: datetime
+    oneToMany:
+        #name of array that may contains many comments = comments. The same name as in TblComments to field "inversedBy: comments"
+        comments:
+            targetEntity: TblComments
+            mappedBy: post_id
