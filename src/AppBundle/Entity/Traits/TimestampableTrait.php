@@ -24,8 +24,13 @@ trait TimestampableTrait
      * @return TblPosts
      */
     public function setCreatedDate($createdDate)
-    {
-        $this->createdDate = $createdDate;
+    {        
+        if(!$createdDate){
+            $this->createdDate = new \DateTime();
+        }
+        else{
+            $this->createdDate = $createdDate;
+        }
 
         return $this;
     }
@@ -49,7 +54,12 @@ trait TimestampableTrait
      */
     public function setUpdatedDate($updatedDate)
     {
-        $this->updatedDate = $updatedDate;
+        if(!$updatedDate){
+            $this->updatedDate = new \DateTime();
+        }
+        else{
+            $this->updatedDate = $updatedDate;
+        }
 
         return $this;
     }

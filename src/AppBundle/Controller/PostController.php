@@ -45,8 +45,8 @@ class PostController extends Controller
         if ($form->isValid()) {
             $newPost = $form->getData();
             $newPost->setCreatedBy($this->get('security.context')->getToken()->getUser()->getUsername());
-            $newPost->setCreatedDate(new \DateTime());
-            $newPost->setUpdatedDate(new \DateTime());
+            $newPost->setCreatedDate(0);
+            $newPost->setUpdatedDate(0);
 
             $em = $this->getDoctrine()->getManager();
             $em->persist($newPost);
@@ -83,7 +83,7 @@ class PostController extends Controller
         $editForm->handleRequest($request);
 
         if ($editForm->isValid()) {
-            $editForm->getData()->setUpdatedDate(new \DateTime());
+            $editForm->getData()->setUpdatedDate(0);
             $em->flush();
         
             $this->addFlash(

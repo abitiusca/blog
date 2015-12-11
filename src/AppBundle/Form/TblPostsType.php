@@ -17,7 +17,13 @@ class TblPostsType extends AbstractType{
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('title')
+            ->add('title', 'text', 
+                array(
+                    'required' => false,
+                    'attr' => array('class' => 'title-post'),
+                    'label' => 'test Title label'
+                )
+            )
             ->add('body')
         ;
     }
