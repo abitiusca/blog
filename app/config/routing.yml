@@ -5,8 +5,11 @@ app:
 # src/Blog/AppBundle/Resources/config/routing.yml
 
 index:
-    pattern: /index
+    pattern: /{_locale}/index
     defaults: { _controller: AppBundle:Post:index }
+    requirements:
+        _locale: en|fr|de
+    
 
 new_post:
     pattern: /new/post
@@ -27,13 +30,13 @@ logout:
     defaults: { _controller: AppBundle:Login:logout }
     
 edit_post:
-    pattern: /edit/post/{id_post}
+    pattern: /edit/post/{id}
     defaults: { _controller: AppBundle:Post:edit }
     
 edit_comment:
-    pattern: /edit/comment/{id_comment}
+    pattern: /edit/comment/{id}
     defaults: { _controller: AppBundle:Comment:edit }
     
 new_comment:
-    pattern: /new/comment
+    pattern: /new/comment/{id_post}
     defaults: { _controller: AppBundle:Comment:new }

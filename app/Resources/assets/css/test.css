@@ -18,3 +18,9 @@ article .body h3{
 article{
     margin-bottom: 20px;
 }
+
+.flash-mesages{
+    background: yellow none repeat scroll 0 0;
+    margin: 5px -5px;
+    padding: 5px;
+}

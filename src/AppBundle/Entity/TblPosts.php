@@ -3,12 +3,14 @@
 namespace AppBundle\Entity;
 
 use \Doctrine\Common\Collections\ArrayCollection;
+use AppBundle\Entity\Traits\TimestampableTrait;
 
 /**
  * TblPosts
  */
 class TblPosts
 {
+    use TimestampableTrait;
     /**
      * @var integer
      */
@@ -28,17 +30,6 @@ class TblPosts
      * @var string
      */
     private $createdBy;
-
-    /**
-     * @var \DateTime
-     */
-    private $createdDate;
-
-    /**
-     * @var \DateTime
-     */
-    private $updatedDate;
-
 
     /**
      * Get id
@@ -122,53 +113,6 @@ class TblPosts
         return $this->createdBy;
     }
 
-    /**
-     * Set createdDate
-     *
-     * @param \DateTime $createdDate
-     *
-     * @return TblPosts
-     */
-    public function setCreatedDate($createdDate)
-    {
-        $this->createdDate = $createdDate;
-
-        return $this;
-    }
-
-    /**
-     * Get createdDate
-     *
-     * @return \DateTime
-     */
-    public function getCreatedDate()
-    {
-        return $this->createdDate;
-    }
-
-    /**
-     * Set updatedDate
-     *
-     * @param \DateTime $updatedDate
-     *
-     * @return TblPosts
-     */
-    public function setUpdatedDate($updatedDate)
-    {
-        $this->updatedDate = $updatedDate;
-
-        return $this;
-    }
-
-    /**
-     * Get updatedDate
-     *
-     * @return \DateTime
-     */
-    public function getUpdatedDate()
-    {
-        return $this->updatedDate;
-    }
     /**
      * @var \Doctrine\Common\Collections\Collection
      */

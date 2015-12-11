@@ -1,5 +1,5 @@
 <?php
-// src/User/AppBundle/Controller/UserController.php
+// src/User/AppBundle/Controller/LoginController.php
 namespace AppBundle\Controller;
 
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
@@ -14,8 +14,6 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 class LoginController extends Controller{
     
     public function loginAction(){
-//        return new Response('Login page !');
-//        return $this->render('AppBundle:user:login.html.twig');
                         
         // load sec
         $authenticationUtils = $this->get('security.authentication_utils');

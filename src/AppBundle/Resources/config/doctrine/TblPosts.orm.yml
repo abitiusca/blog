@@ -1,6 +1,7 @@
 # src/AppBundle/Resources/app/config/doctrine/TblPosts.orm.yml
 AppBundle\Entity\TblPosts:
     type: entity
+    repositoryClass: AppBundle\Repository\TblPostsRepository
     table: tb_posts
     id:
         id:

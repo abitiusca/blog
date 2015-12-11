@@ -28,7 +28,5 @@ security:
             anonymous: ~
             
     access_control:
-        - { path: ^/new/post, roles: ROLE_USER }
-        - { path: ^/edit/post, roles: ROLE_USER }
-        - { path: ^/new/comment, roles: ROLE_USER }
-        - { path: ^/edit/comment, roles: ROLE_USER }
+        - { path: ^/new/*, roles: ROLE_USER }
+        - { path: ^/edit/*, roles: ROLE_USER }

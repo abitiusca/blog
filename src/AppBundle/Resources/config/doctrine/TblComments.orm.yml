@@ -1,6 +1,7 @@
 # src/AppBundle/Resources/app/config/doctrine/TblComments.orm.yml
 AppBundle\Entity\TblComments:
     type: entity
+    repositoryClass: AppBundle\Repository\TblCommentsRepository
     table: tb_comments
     id:
         id:

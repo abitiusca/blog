@@ -5,9 +5,16 @@
 
 {% block body %}
     {{ parent() }}
-    
-    <h1>Index Blog Page</h1>
-    
+    {% block titlePage %}{{ "Index Blog Page"|trans }} {% endblock %}
+    <div class="flash-mesages">
+        {% for label, flashes in app.session.flashbag.all %}
+            {% for flash in flashes %}
+                <div class="alert alert-{{ label }}">
+                    {{ flash }}
+                </div>
+            {% endfor %}
+        {% endfor %}
+    </div>
     <div class="articles">
     {% for post in posts %}
         <article>
@@ -19,7 +26,7 @@
                     {{ comment.body }}
                     
                     {% if app.user and app.user.username == post.createdBy %} 
-                        <a href="{{ path('edit_comment', {'id_comment': comment.id}) }}#home">Edit comment</a> 
+                        <a href="{{ path('edit_comment', {'id': comment.id}) }}#home">Edit comment</a> 
                     {% endif %}
                 </h4>
                 <h6>Commented by user"{{ comment.createdBy }}" - on date {{ comment.createdDate|date("m/d/Y") }} -  last update {{ comment.updatedDate|date("m/d/Y") }}</h6>
@@ -28,11 +35,11 @@
             
             <div class="add-comment">
                 <a href="{{ path('new_post') }}">Add a new post</a> - 
-{#                {% if (app.user.username == post.createdBy ) or (app.user and ("ROLE_ADMIN" in app.user.roles)) %} #}
-                {% if app.user and app.user.username == post.createdBy %} 
-                    <a href="{{ path('edit_post', {'id_post': post.id}) }}">Edit post</a> - 
+{#                {% if (app.user.username == post.createdBy ) or (app.user and ("ROLE_ADMIN" in app.user.roles)) %} #} {# is_granted('ROLE_ADMIN') #}
+                {% if app.user and app.user.username == post.createdBy %}
+                    <a href="{{ path('edit_post', {'id': post.id}) }}">Edit post</a> - 
                 {% endif %}
-                <a href="{{ path('new_comment') }}">Add a comment</a>
+                <a href="{{ path('new_comment', {'id_post': post.id}) }}">Add a comment</a>
             </div>
         </article>
         <hr>

@@ -2,11 +2,15 @@
 
 namespace AppBundle\Entity;
 
+use AppBundle\Entity\Traits\TimestampableTrait;
+
 /**
  * TblComments
  */
 class TblComments
 {
+    use TimestampableTrait;
+    
     /**
      * @var integer
      */
@@ -21,16 +25,6 @@ class TblComments
      * @var string
      */
     private $createdBy;
-
-    /**
-     * @var \DateTime
-     */
-    private $createdDate;
-
-    /**
-     * @var \DateTime
-     */
-    private $updatedDate;
 
     /**
      * @var \AppBundle\Entity\TblPosts
@@ -94,54 +88,6 @@ class TblComments
     public function getCreatedBy()
     {
         return $this->createdBy;
-    }
-
-    /**
-     * Set createdDate
-     *
-     * @param \DateTime $createdDate
-     *
-     * @return TblComments
-     */
-    public function setCreatedDate($createdDate)
-    {
-        $this->createdDate = $createdDate;
-
-        return $this;
-    }
-
-    /**
-     * Get createdDate
-     *
-     * @return \DateTime
-     */
-    public function getCreatedDate()
-    {
-        return $this->createdDate;
-    }
-
-    /**
-     * Set updatedDate
-     *
-     * @param \DateTime $updatedDate
-     *
-     * @return TblComments
-     */
-    public function setUpdatedDate($updatedDate)
-    {
-        $this->updatedDate = $updatedDate;
-
-        return $this;
-    }
-
-    /**
-     * Get updatedDate
-     *
-     * @return \DateTime
-     */
-    public function getUpdatedDate()
-    {
-        return $this->updatedDate;
     }
 
     /**
