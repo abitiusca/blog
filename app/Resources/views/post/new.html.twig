@@ -3,9 +3,10 @@
 
 {% block title %}New post{% endblock %}
 
-{% block body %}
+{% block titlePage %}New Blog Page{% endblock titlePage %}
+
+{% block content %}
     {{ parent() }}
-    <div class="title-page">{% block titlePage %}New Blog Page 1 {% endblock %}</div>
     
     <form action="{{ path('new_post') }}" method="POST">
         
@@ -17,5 +18,5 @@
         
         <input type="submit" value="Register!" formnovalidate />
     </form>
-    
+        
 {% endblock %}

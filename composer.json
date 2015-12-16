@@ -4,9 +4,7 @@
     "type": "project",
     "description": "The \"Symfony Standard Edition\" distribution",
     "autoload": {
-        "psr-4": { "": "src/" },        
-        "psr-1": {"": "config/yml/"},
-        "psr-2": {"": "Entity/"}
+        "psr-4": { "": "src/" }
     },
     "require": {
         "php": ">=5.3.9",

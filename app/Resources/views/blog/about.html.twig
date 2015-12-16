@@ -1,21 +1,29 @@
-{# app/Resources/views/default/index.html.twig #}
+{# app/Resources/views/blog/about.html.twig #}
 {% extends '::template.html.twig' %}
 
-{% block title %}New post{% endblock %}
+{% block title %}About{% endblock %}
 
-{% block body %}
-    {{ parent() }}
-    <div class="title-page">{% block titlePage %}New Blog Page 1 {% endblock %}</div>
+{% block titlePage %}{{ block('title') }}{% endblock titlePage %}
+
+{% block content %}   
+    {% block flashMessages %}
+        {{ parent() }}
+    {% endblock %}
+
+    {% block menu %}
+        {{ parent() }}
+    {% endblock %}
+        
+    {% block login %}
+        {{ parent() }}
+    {% endblock %}
     
-    <form action="{{ path('new_post') }}" method="POST">
-        
-        {{ form_errors(form) }}
-        
-        {{ form_row(form.title) }}
-        {{ form_row(form.body) }}
-        {{ form_rest(form) }}
-        
-        <input type="submit" value="Register!" formnovalidate />
-    </form>
-    
+    {% block oneColumn %}
+        <div class="one-side">
+            {% block oneSide %}
+                {{ block('title') }} lorem Lipsum dorel sic at ...
+            {% endblock %}
+        </div>
+    {% endblock %}
+                
 {% endblock %}

@@ -7,7 +7,30 @@
         <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
     </head>
     <body>
-        {% block body %}{% endblock %}
+        {% block body %}
+            {% block head %}{% endblock %}
+            
+            <div class="wrapper">
+            {% block content %} 
+                <div class="left-side">
+                    {% block leftSide %}
+                        some content lorem lipsum doler sic at 
+                    {% endblock %}
+                </div>
+
+                <div class="right-side">
+                    {% block rightSide %}
+                        <a href="{{ path('index') }}">Homepage</a>
+                        <a href="{{ path('about') }}">About</a>
+                        <a href="{{ path('contact') }}">Contact</a>
+                    {% endblock %}
+                </div>
+            {% endblock %}
+            </div>
+            
+            {% block footer %}{% endblock %}    
+            
+        {% endblock %}
         {% block javascripts %}{% endblock %}
     </body>
 </html>

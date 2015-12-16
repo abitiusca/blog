@@ -1,18 +1,12 @@
 <?php
-// src/Blog/AppBundle/Controller/BlogController.php
+// src/Blog/AppBundle/Controller/PostController.php
 namespace AppBundle\Controller;
 
-//use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use AppBundle\Entity\TblPosts;
 use Symfony\Component\HttpFoundation\Request;
 use AppBundle\Form\TblPostsType;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
-//use AppBundle\Repository\TblPostsRepository;
-//use Symfony\Component\HttpFoundation\Response;
-//use Symfony\Bundle\TwigBundle\Node\RenderNode;
-//use AppBundle\Repository\TblPostsRepository;
-//use Symfony\Component\Security\Core\Exception\AccessDeniedException;
 
 class PostController extends Controller
 {
@@ -81,7 +75,7 @@ class PostController extends Controller
         $editForm = $this->createForm($entityForm);
         $editForm->setData($entity);
         $editForm->handleRequest($request);
-
+        
         if ($editForm->isValid()) {
             $editForm->getData()->setUpdatedDate(0);
             $em->flush();

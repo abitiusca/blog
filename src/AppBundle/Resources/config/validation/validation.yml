@@ -1,7 +1,14 @@
-# src/AppBundle/Resources/app/config/validation.yml
+# src/AppBundle/Resources/app/config/validation/validation.yml
 AppBundle\Entity\TblPosts:
-    proprietes:
+    properties:
         title:
-            - NotBlank: ~
+            - NotBlank:
+                message: Title cannot be blank.
+            - Length:
+                min: 2
+                max: 10
+                minMessage: 'Title name must be at least {{ limit }} characters long'
+                maxMessage: 'Title name cannot be longer than {{ limit }} characters'
         body:
-            - NotBlank: ~
+            - NotBlank:
+                message: Body cannot be blank.

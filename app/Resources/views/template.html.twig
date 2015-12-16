@@ -7,22 +7,74 @@
     <link rel="stylesheet" href="{{ asset_url }}"/>
     {% endstylesheets %}
 {% endblock %}
+    
+{% block head %}
+    <div class="title-page">
+        <h1><center>{% block titlePage %}Default Template{% endblock %}</center></h1>
+    </div>
+{% endblock %}
 
-{% block title %}Index Blog Page{% endblock %}
+{% block content %}
+    {% block flashMessages %}
+        <div class="flash-messages">
+            {% for label, flashes in app.session.flashbag.all %}
+                {% for flash in flashes %}
+                    <div class="alert alert-{{ label }}">
+                        {{ flash }}
+                    </div>
+                {% endfor %}
+            {% endfor %}
+        </div>
+    {% endblock %}
 
-{% block body %}
-    {{ parent() }}
-    <div class="title-page"><h1>{% block titlePage %}Default title{% endblock %}</h1></div>
-    {% if is_granted('IS_AUTHENTICATED_REMEMBERED') %}
-        <a href="{{ path('logout') }}#home">Logout</a>
-    {% else %}
-        <a href="{{ path('login') }}#home">Login</a>
-    {% endif %}
+    {% block menu %}
+        <div class="menuBlog">
+            {{ render(controller('AppBundle:Blog:menuBlog' )) }}
+        </div>
+    {% endblock %}
+        
+    {% block login %}
+        <div class="login">
+            {% if is_granted('IS_AUTHENTICATED_REMEMBERED') %}
+                <a href="{{ path('logout') }}">Logout</a>
+            {% else %}
+                <a href="{{ path('login') }}">Login</a>
+            {% endif %}
+        </div>
+    {% endblock %}
+    
+    {% block twoColumns %}
+        <div class="left-side">
+            {% block leftSide %}
+            {% endblock %}
+        </div>
+
+        <div class="right-side">
+            {% block rightSide %}
+                {{ render(controller('AppBundle:Blog:menuBlog' )) }}
+            {% endblock %}
+        </div>
+    {% endblock %}
+    
+    {% block oneColumn %}
+        <div class="one-side">
+            {% block oneSide %}
+            {% endblock %}
+        </div>
+    {% endblock %}
         
     {% block javascripts %}
         {% javascripts output="js/test2.js"  '%kernel.root_dir%/Resources/assets/js/test.js' %}
             <script src="{{ asset_url }}"></script>
         {% endjavascripts %}
-    {% endblock %}
-    
+    {% endblock javascripts %}
+        
+{% endblock %}
+
+
+
+{% block footer %}
+    <div class="footer">
+        footer here
+    </div>
 {% endblock %}

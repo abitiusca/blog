@@ -5,38 +5,45 @@ app:
 # src/Blog/AppBundle/Resources/config/routing.yml
 
 index:
-    pattern: /{_locale}/index
-    defaults: { _controller: AppBundle:Post:index }
+    path: /{_locale}
+    defaults: { _controller: AppBundle:Post:index, _locale: 'en' }
     requirements:
         _locale: en|fr|de
-    
 
 new_post:
-    pattern: /new/post
+    path: /new/post
     defaults: { _controller: AppBundle:Post:new }
+
+about:
+    path: /blog/about
+    defaults: { _controller: AppBundle:Blog:about }
+
+contact:
+    path: /blog/contact
+    defaults: { _controller: AppBundle:Blog:contact }
     
 # src/User/AppBundle/Resources/config/routing.yml
 
 login:
-    pattern: /login
+    path: /login
     defaults: { _controller: AppBundle:Login:login }
     
 login_check:
-    pattern: /login_check
+    path: /login_check
     defaults: { _controller: AppBundle:Login:loginCheck }
     
 logout:
-    pattern: /logout
+    path: /logout
     defaults: { _controller: AppBundle:Login:logout }
     
 edit_post:
-    pattern: /edit/post/{id}
+    path: /edit/post/{id}
     defaults: { _controller: AppBundle:Post:edit }
     
 edit_comment:
-    pattern: /edit/comment/{id}
+    path: /edit/comment/{id}
     defaults: { _controller: AppBundle:Comment:edit }
     
 new_comment:
-    pattern: /new/comment/{id_post}
+    path: /new/comment/{id_post}
     defaults: { _controller: AppBundle:Comment:new }
