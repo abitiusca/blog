@@ -1,0 +1,21 @@
+{# app/Resources/views/default/index.html.twig #}
+{% extends '::template.html.twig' %}
+
+{% block title %}New post{% endblock %}
+
+{% block body %}
+    {{ parent() }}
+    <div class="title-page">{% block titlePage %}New Blog Page 1 {% endblock %}</div>
+    
+    <form action="{{ path('new_post') }}" method="POST">
+        
+        {{ form_errors(form) }}
+        
+        {{ form_row(form.title) }}
+        {{ form_row(form.body) }}
+        {{ form_rest(form) }}
+        
+        <input type="submit" value="Register!" formnovalidate />
+    </form>
+    
+{% endblock %}

@@ -1,0 +1,28 @@
+{# app/Resources/views/index.html.twig #}
+{% extends '::base.html.twig' %}
+
+{% block stylesheets %}
+    {% stylesheets filter="cssrewrite" output="css/app.css"    
+        '%kernel.root_dir%/Resources/assets/css/test.css' %}
+    <link rel="stylesheet" href="{{ asset_url }}"/>
+    {% endstylesheets %}
+{% endblock %}
+
+{% block title %}Index Blog Page{% endblock %}
+
+{% block body %}
+    {{ parent() }}
+    <div class="title-page"><h1>{% block titlePage %}Default title{% endblock %}</h1></div>
+    {% if is_granted('IS_AUTHENTICATED_REMEMBERED') %}
+        <a href="{{ path('logout') }}#home">Logout</a>
+    {% else %}
+        <a href="{{ path('login') }}#home">Login</a>
+    {% endif %}
+        
+    {% block javascripts %}
+        {% javascripts output="js/test2.js"  '%kernel.root_dir%/Resources/assets/js/test.js' %}
+            <script src="{{ asset_url }}"></script>
+        {% endjavascripts %}
+    {% endblock %}
+    
+{% endblock %}
