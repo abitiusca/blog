@@ -1,29 +1,21 @@
 {# app/Resources/views/blog/about.html.twig #}
 {% extends '::template.html.twig' %}
 
-{% block title %}Contact{% endblock %}
+    {% block title %}Contact{% endblock %}
 
-{% block titlePage %}{{ block('title') }}{% endblock titlePage %}
+    {% block titlePage %}{{ block('title') }}{% endblock titlePage %}
 
-{% block content %}    
-    {% block flashMessages %}
-        {{ parent() }}
-    {% endblock %}
 
-    {% block menu %}
-        {{ parent() }}
-    {% endblock %}
-        
-    {% block login %}
-        {{ parent() }}
-    {% endblock %}
-    
-    {% block oneColumn %}
-        <div class="one-side">
-            {% block oneSide %}
+    {% block content %}
+        {% embed '::3column.html.twig' %}
+            {% block leftSide %}
+                {% include '::blog/menu.html.twig' %}
+            {% endblock %}
+            {% block centerSide %}
                 {{ block('title') }} lorem Lipsum dorel sic at ...
             {% endblock %}
-        </div>
+            {% block rightSide %}
+                {% include '::blog/menu.html.twig' %}
+            {% endblock %}
+        {% endembed %}
     {% endblock %}
-        
-{% endblock %}

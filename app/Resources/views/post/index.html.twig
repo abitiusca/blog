@@ -4,23 +4,9 @@
 {% block title %}Index Blog Page{% endblock %}
 
 {% block titlePage %}{{ "Index Blog Page"|trans }}{% endblock %}
-
-{% block content %}
     
-    {% block flashMessages %}
-        {{ parent() }}
-    {% endblock %}
-
-    {% block menu %}
-        {{ parent() }}
-    {% endblock %}
-        
-    {% block login %}
-        {{ parent() }}
-    {% endblock %}
-    
-    {% block twoColumns %}
-        <div class="left-side">
+    {% block content %}
+        {% embed '::2column.html.twig' %}
             {% block leftSide %}
                 <div class="articles">
                 {% for post in posts %}
@@ -53,16 +39,9 @@
                 {% endfor %}
                 </div>
             {% endblock %}
-        </div>
-        <div class="right-side">
-            {% block rightSide %}
-                {{ parent() }}
+            {% block rightColumn %}
+                {% embed '::blog/menu.html.twig' %}
+                {% endembed %}
             {% endblock %}
-        </div>
+        {% endembed %}
     {% endblock %}
-        
-    {% block javascripts %}
-        {{ parent() }}
-    {% endblock javascripts %}
-    
-{% endblock %}

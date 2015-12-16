@@ -65,6 +65,25 @@ a:hover{
     display: block;
 }
 
+.left-side3, .center-side3, .right-side3{
+    float: left;
+    padding: 1.3%;
+    border: 1px solid gray;
+    margin: 2px 2px;
+}
+
+.left-side3, .right-side3{
+    width: 18%;
+}
+
+.left-side3 a, .right-side3 a{
+    display: block;
+}
+
+.center-side3{
+    width: 55%;
+}
+
 .footer{
     width: 97%;
     float: left;
@@ -78,4 +97,10 @@ a:hover{
     padding: 1.3%;
     border: 1px solid gray;
     margin: 2px 0;
+}
+
+
+.full-side {
+    border: 1px solid red;
+    width: 100%
 }

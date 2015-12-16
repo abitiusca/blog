@@ -8,73 +8,49 @@
     {% endstylesheets %}
 {% endblock %}
     
-{% block head %}
-    <div class="title-page">
-        <h1><center>{% block titlePage %}Default Template{% endblock %}</center></h1>
-    </div>
-{% endblock %}
-
-{% block content %}
-    {% block flashMessages %}
-        <div class="flash-messages">
-            {% for label, flashes in app.session.flashbag.all %}
-                {% for flash in flashes %}
-                    <div class="alert alert-{{ label }}">
-                        {{ flash }}
-                    </div>
+    {% block head %}        
+        <div class="title-page">
+            <h1><center>{% block titlePage %}Default Template{% endblock %}</center></h1>
+        </div>
+        {% block flashMessages %}
+            <div class="flash-messages">
+                {% for label, flashes in app.session.flashbag.all %}
+                    {% for flash in flashes %}
+                        <div class="alert alert-{{ label }}">
+                            {{ flash }}
+                        </div>
+                    {% endfor %}
                 {% endfor %}
-            {% endfor %}
-        </div>
-    {% endblock %}
+            </div>
+        {% endblock %}
 
-    {% block menu %}
-        <div class="menuBlog">
-            {{ render(controller('AppBundle:Blog:menuBlog' )) }}
-        </div>
-    {% endblock %}
-        
-    {% block login %}
-        <div class="login">
-            {% if is_granted('IS_AUTHENTICATED_REMEMBERED') %}
-                <a href="{{ path('logout') }}">Logout</a>
-            {% else %}
-                <a href="{{ path('login') }}">Login</a>
-            {% endif %}
-        </div>
-    {% endblock %}
-    
-    {% block twoColumns %}
-        <div class="left-side">
-            {% block leftSide %}
-            {% endblock %}
-        </div>
-
-        <div class="right-side">
-            {% block rightSide %}
+        {% block menu %}
+            <div class="menuBlog">
                 {{ render(controller('AppBundle:Blog:menuBlog' )) }}
-            {% endblock %}
-        </div>
-    {% endblock %}
-    
-    {% block oneColumn %}
-        <div class="one-side">
-            {% block oneSide %}
-            {% endblock %}
-        </div>
+            </div>
+        {% endblock %}
+
+        {% block login %}
+            <div class="login">
+                {% if is_granted('IS_AUTHENTICATED_REMEMBERED') %}
+                    <a href="{{ path('logout') }}">Logout</a>
+                {% else %}
+                    <a href="{{ path('login') }}">Login</a>
+                {% endif %}
+            </div>
+        {% endblock %}
     {% endblock %}
         
+    {% block content %}{% endblock %}
+    
+    {% block footer %}
+        <div class="footer">
+            footer here
+        </div>
+    {% endblock %}
+
     {% block javascripts %}
         {% javascripts output="js/test2.js"  '%kernel.root_dir%/Resources/assets/js/test.js' %}
             <script src="{{ asset_url }}"></script>
         {% endjavascripts %}
     {% endblock javascripts %}
-        
-{% endblock %}
-
-
-
-{% block footer %}
-    <div class="footer">
-        footer here
-    </div>
-{% endblock %}

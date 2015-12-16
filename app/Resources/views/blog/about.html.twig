@@ -1,29 +1,16 @@
 {# app/Resources/views/blog/about.html.twig #}
 {% extends '::template.html.twig' %}
 
-{% block title %}About{% endblock %}
+    {% block title %}About{% endblock %}
 
-{% block titlePage %}{{ block('title') }}{% endblock titlePage %}
-
-{% block content %}   
-    {% block flashMessages %}
-        {{ parent() }}
-    {% endblock %}
-
-    {% block menu %}
-        {{ parent() }}
-    {% endblock %}
-        
-    {% block login %}
-        {{ parent() }}
-    {% endblock %}
+    {% block titlePage %}{{ block('title') }}{% endblock titlePage %}
     
-    {% block oneColumn %}
-        <div class="one-side">
-            {% block oneSide %}
+    {% block content %}
+        {% embed '::1column.html.twig' %}
+            {% block oneColumn %}
                 {{ block('title') }} lorem Lipsum dorel sic at ...
             {% endblock %}
-        </div>
+        {% endembed %}
     {% endblock %}
-                
-{% endblock %}
+    
+    
