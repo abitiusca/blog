@@ -13,26 +13,25 @@ class PostController extends Controller
 
     public function indexAction()
     {
-        
-//        $posts = $this->getDoctrine()
-//            ->getRepository('AppBundle:TblPosts')
-//            ->findAll();
-        
-        $em = $this->getDoctrine()->getManager();
-        $posts = $em->getRepository('AppBundle:TblPosts')
-            ->findAll();
+        $posts = $this->getDoctrine()
+            ->getManager()
+            ->getRepository('AppBundle:TblPosts')
+            ->getPosts(10);
                 
         return $this->render('post/index.html.twig', array('posts' => $posts));
     }
 
+    public function viewAction($id)
+    {
+        $em = $this->getDoctrine()->getManager();
+        $post = $em->getRepository('AppBundle:TblPosts')->findPost($id);
+                
+        return $this->render('post/view.html.twig', array('post' => $post));
+    }
+
     public function newAction(Request $request)
     {
-//        $securityContext = $this->container->get('security.context');
-//        if(!$securityContext->isGranted('ROLE_ADMIN')){
-//            throw new AccessDeniedException('Only an user ca do this');
-//        }
-        $entity = new TblPostsType();
-        
+        $entity = new TblPostsType();        
         $form = $this->createForm($entity);
         $form->handleRequest($request);
         
@@ -50,7 +49,6 @@ class PostController extends Controller
                 'notice',
                 'Success !'
             );
-
             return $this->redirect($this->generateUrl('index'));
         }
         
@@ -64,7 +62,7 @@ class PostController extends Controller
     {
         $em = $this->getDoctrine()->getManager();
 
-        $entity = $em->getRepository('AppBundle:TblPosts')->find($id);
+        $entity = $em->getRepository('AppBundle:TblPosts')->findPost($id);
 
         if (!$entity) {
             throw $this->createNotFoundException('Unable to find Post entity.');

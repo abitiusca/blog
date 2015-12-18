@@ -32,11 +32,10 @@ class LoginController extends Controller{
     }
     
     public function loginCheckAction(){
-        return new Response('Login page !');
-//        return $this->render('AppBundle:user:login.html.twig');
+        
     }
     
     public function logoutAction(){
-        return new Response('Login page !');        
+        
     }
 }

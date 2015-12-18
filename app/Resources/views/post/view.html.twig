@@ -1,0 +1,18 @@
+{# app/Resources/views/default/index.html.twig #}
+{% extends '::template.html.twig' %}
+
+{% block title %}View Post Page{% endblock %}
+
+{% block titlePage %}{{ block('title') }}{% endblock %}
+    
+    {% block content %}
+        {% embed '::2column.html.twig' %}
+            {% block leftSide %}
+                {% embed '::post/item.html.twig' %}
+                {% endembed %}   
+            {% endblock %}
+            {% block rightColumn %}
+                {% include '::blog/menu.html.twig' %}
+            {% endblock %}
+        {% endembed %}
+    {% endblock %}

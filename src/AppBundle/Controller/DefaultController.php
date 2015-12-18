@@ -1,4 +1,5 @@
 <?php
+// src/Blog/AppBundle/Controller/DefaultController.php
 
 namespace AppBundle\Controller;
 

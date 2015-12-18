@@ -1,18 +1,15 @@
-{# app/Resources/views/post/index.html.twig #}
+{# app/Resources/views/comment/index.html.twig #}
 {% extends '::template.html.twig' %}
-
-{% block title %}New Post Page{% endblock %}
 
 {% block titlePage %}{{ block('title') }}{% endblock %}
     
     {% block content %}
         {% embed '::2column.html.twig' %}
             {% block leftSide %}
-                <form action="{{ path('new_post') }}" method="POST">
+                <form action="{{ path('new_comment', {'post_id': app.request.get('post_id')}) }}" method="POST">
         
                     {{ form_errors(form) }}
 
-                    {{ form_row(form.title) }}
                     {{ form_row(form.body) }}
                     {{ form_rest(form) }}
 

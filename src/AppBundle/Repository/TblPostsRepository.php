@@ -6,13 +6,23 @@ use Doctrine\ORM\EntityRepository;
 
 class TblPostsRepository extends EntityRepository
 {
-    public function findAll() {
+    public function getPosts($limit) {
         return $this->createQueryBuilder('p')
-                ->andWhere('p.id > 146')
-                ->getQuery()
-                ->getResult()
+            ->setMaxResults($limit)
+            ->getQuery()
+            ->getResult()
         ;
     }
+    
+    public function findPost($id) {
+        return $this->createQueryBuilder('p')
+            ->andWhere('p.id = :id')
+            ->setParameter('id', $id)
+            ->getQuery()
+            ->getOneOrNullResult()
+        ;
+    }
+    
     public function queryLatest()
     {
         return $this->getEntityManager()

@@ -3,5 +3,7 @@
 </div>
 
 <div class="right-side">
-{% block rightColumn %}right side{% endblock %}    
+    {% block rightColumn %}
+        {% include '::blog/menu.html.twig' %}
+    {% endblock %}    
 </div>

@@ -1,11 +1,15 @@
 <div class="left-side3">
-    {% block leftSide %}left side{% endblock %}
+    {% block leftSide %}
+        {% include '::blog/menu.html.twig' %}
+    {% endblock %}
 </div>
 
 <div class="center-side3">
-{% block centerSide %}center side{% endblock %}    
+    {% block centerSide %}center side{% endblock %}    
 </div> 
 
 <div class="right-side3">
-{% block rightSide %}right side{% endblock %}    
+{% block rightSide %}
+    {% include '::blog/menu.html.twig' %}
+{% endblock %}    
 </div> 

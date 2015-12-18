@@ -1,18 +1,8 @@
 app:
     resource: "@AppBundle/Controller/"
     type:     annotation
-    
-# src/Blog/AppBundle/Resources/config/routing.yml
 
-index:
-    path: /{_locale}
-    defaults: { _controller: AppBundle:Post:index, _locale: 'en' }
-    requirements:
-        _locale: en|fr|de
-
-new_post:
-    path: /new/post
-    defaults: { _controller: AppBundle:Post:new }
+# blog
 
 about:
     path: /blog/about
@@ -22,7 +12,7 @@ contact:
     path: /blog/contact
     defaults: { _controller: AppBundle:Blog:contact }
     
-# src/User/AppBundle/Resources/config/routing.yml
+# login
 
 login:
     path: /login
@@ -36,14 +26,40 @@ logout:
     path: /logout
     defaults: { _controller: AppBundle:Login:logout }
     
+# posts
+
+index:
+    path: /{_locale}
+    defaults: { _controller: AppBundle:Post:index, _locale: 'en' }
+    requirements:
+        _locale: en|fr|de
+
+new_post:
+    path: /new/post
+    defaults: { _controller: AppBundle:Post:new }
+    
 edit_post:
     path: /edit/post/{id}
     defaults: { _controller: AppBundle:Post:edit }
+    
+view_post:
+    path: /view/post/{id}
+    defaults: { _controller: AppBundle:Post:view }
+    
+# comments
+    
+view_comments:
+    path: /comments
+    defaults: { _controller: AppBundle:Comment:index }
+    
+edit_comment:
+    path: /edit/comment/{id}
+    defaults: { _controller: AppBundle:Comment:edit }
     
 edit_comment:
     path: /edit/comment/{id}
     defaults: { _controller: AppBundle:Comment:edit }
     
 new_comment:
-    path: /new/comment/{id_post}
+    path: /new/comment/{post_id}
     defaults: { _controller: AppBundle:Comment:new }
