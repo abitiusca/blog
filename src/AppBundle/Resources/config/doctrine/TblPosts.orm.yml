@@ -2,7 +2,7 @@
 AppBundle\Entity\TblPosts:
     type: entity
     repositoryClass: AppBundle\Repository\TblPostsRepository
-    table: tb_posts
+    table: tbl_posts
     id:
         id:
             type: integer

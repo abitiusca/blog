@@ -4,6 +4,7 @@ namespace AppBundle\Entity;
 
 use \Doctrine\Common\Collections\ArrayCollection;
 use AppBundle\Entity\Traits\TimestampableTrait;
+use Gedmo\Mapping\Annotation as Gedmo;
 
 /**
  * TblPosts
@@ -31,7 +32,11 @@ class TblPosts
      */
     private $createdBy;
     
-    protected $slug;
+    /**
+     * @Gedmo\Slug(fields={"name"}, updatable=false)
+     * @ORM\Column(length=255, unique=true)
+     */
+    private $slug;
     
     public function getSlug(){
         return $this->slug;
