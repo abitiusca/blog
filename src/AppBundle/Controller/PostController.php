@@ -37,7 +37,7 @@ class PostController extends Controller
         
         if ($form->isValid()) {
             $newPost = $form->getData();
-            $newPost->setCreatedBy($this->get('security.context')->getToken()->getUser()->getUsername());
+            $newPost->setCreatedBy($this->get('security.context')->getToken()->getUser());
             $newPost->setCreatedDate(0);
             $newPost->setUpdatedDate(0);
 
@@ -90,6 +90,29 @@ class PostController extends Controller
             'entity'    => $entity,
             'form'      => $editForm->createView(),
         ));
+    }
+
+    public function deleteAction(Request $request, $id)
+    {
+        $em = $this->getDoctrine()->getManager();
+
+        $entity = $em->getRepository('AppBundle:TblPosts')->findPost($id);
+
+        if (!$entity) {
+            throw $this->createNotFoundException('Unable to find Post entity.');
+        }else{
+            $em->remove($entity);
+            $em->flush();
+        
+            $this->addFlash(
+                'notice',
+                'Success !'
+            );
+
+            return $this->redirect($this->generateUrl('index'));
+        }
+        
+        return $this->render('post/index.html.twig');
     }
     
 }

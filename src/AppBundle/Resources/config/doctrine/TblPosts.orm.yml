@@ -25,3 +25,4 @@ AppBundle\Entity\TblPosts:
         comments:
             targetEntity: TblComments
             mappedBy: tbl_posts
+            cascade: ["persist", "merge"]

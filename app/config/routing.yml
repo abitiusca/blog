@@ -42,6 +42,10 @@ edit_post:
     path: /edit/post/{id}
     defaults: { _controller: AppBundle:Post:edit }
     
+delete_post:
+    path: /delete/post/{id}
+    defaults: { _controller: AppBundle:Post:delete }
+    
 view_post:
     path: /view/post/{id}
     defaults: { _controller: AppBundle:Post:view }

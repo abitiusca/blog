@@ -46,7 +46,7 @@ class CommentController extends Controller
                 'notice',
                 'Success !'
             );
-            return $this->redirect($this->generateUrl('view_comments'));
+            return $this->redirect($this->generateUrl('index'));
         }
         
         return $this->render('comment/new.html.twig', array(

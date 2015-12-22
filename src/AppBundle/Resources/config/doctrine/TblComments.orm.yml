@@ -20,8 +20,11 @@ AppBundle\Entity\TblComments:
     manyToOne:
         tbl_posts:
             targetEntity: TblPosts
+            cascade: ["persist","remove"]
+            orphanRemoval: true
             #name of array that may contains many comments.  The same name as in TblComments to field "oneToMany: comments"
             inversedBy: comments
             joinColumn:
                 name: post_id
                 referencedColumnName: id
+                onDelete: CASCADE

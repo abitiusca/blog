@@ -30,6 +30,16 @@ class TblPosts
      * @var string
      */
     private $createdBy;
+    
+    protected $slug;
+    
+    public function getSlug(){
+        return $this->slug;
+    }
+    
+    public function setSlug($slug){
+        $this->slug = $slug;
+    }
 
     /**
      * Get id
@@ -39,6 +49,8 @@ class TblPosts
     public function getId()
     {
         return $this->id;
+
+        return $this;
     }
 
     /**
