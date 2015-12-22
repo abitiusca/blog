@@ -1,0 +1,16 @@
+{# app/Resources/views/blog/about.html.twig #}
+{% extends '::template.html.twig' %}
+
+    {% block title %}About{% endblock %}
+
+    {% block titlePage %}{{ block('title') }}{% endblock titlePage %}
+    
+    {% block content %}
+        {% embed '::1column.html.twig' %}
+            {% block oneColumn %}
+                {{ block('title') }} lorem Lipsum dorel sic at ...
+            {% endblock %}
+        {% endembed %}
+    {% endblock %}
+    
+    

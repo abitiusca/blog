@@ -1,0 +1,21 @@
+{# app/Resources/views/blog/about.html.twig #}
+{% extends '::template.html.twig' %}
+
+    {% block title %}Contact{% endblock %}
+
+    {% block titlePage %}{{ block('title') }}{% endblock titlePage %}
+
+
+    {% block content %}
+        {% embed '::3column.html.twig' %}
+            {% block leftSide %}
+                {% include '::blog/menu.html.twig' %}
+            {% endblock %}
+            {% block centerSide %}
+                {{ block('title') }} lorem Lipsum dorel sic at ...
+            {% endblock %}
+            {% block rightSide %}
+                {% include '::blog/menu.html.twig' %}
+            {% endblock %}
+        {% endembed %}
+    {% endblock %}

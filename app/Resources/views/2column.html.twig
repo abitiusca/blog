@@ -1,0 +1,9 @@
+<div class="left-side">
+    {% block leftSide %}left side{% endblock %}
+</div>
+
+<div class="right-side">
+    {% block rightColumn %}
+        {% include '::blog/menu.html.twig' %}
+    {% endblock %}    
+</div>

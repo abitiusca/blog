@@ -10,3 +10,9 @@
 /vendor/
 /bin/
 /composer.phar
+
+app/cache/.gitkeep
+nbproject/private/private.properties
+nbproject/private/private.xml
+nbproject/project.properties
+nbproject/project.xml

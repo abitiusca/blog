@@ -1,0 +1,26 @@
+{# app/Resources/views/default/index.html.twig #}
+{% extends '::template.html.twig' %}
+
+{% block title %}Index Blog Page{% endblock %}
+
+{% block titlePage %}{{ block('title') }}{% endblock %}
+    
+    {% block content %}
+        {% embed '::2column.html.twig' %}
+            {% block leftSide %}
+                {% for post in posts %}
+                    {% embed '::post/item.html.twig' %}
+                        {% block itemTitle %}
+                            <a href="{{ path('view_post', {'id': post.id}) }}">
+                            {{ post.title }}
+                            </a>
+                        {% endblock %}   
+                    {% endembed %}
+                    <hr>
+                {% endfor %}
+            {% endblock %}
+            {% block rightColumn %}
+                {% include '::blog/menu.html.twig' %}
+            {% endblock %}
+        {% endembed %}
+    {% endblock %}

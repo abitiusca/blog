@@ -1,3 +1,69 @@
 app:
     resource: "@AppBundle/Controller/"
     type:     annotation
+
+# blog
+
+about:
+    path: /blog/about
+    defaults: { _controller: AppBundle:Blog:about }
+
+contact:
+    path: /blog/contact
+    defaults: { _controller: AppBundle:Blog:contact }
+    
+# login
+
+login:
+    path: /login
+    defaults: { _controller: AppBundle:Login:login }
+    
+login_check:
+    path: /login_check
+    defaults: { _controller: AppBundle:Login:loginCheck }
+    
+logout:
+    path: /logout
+    defaults: { _controller: AppBundle:Login:logout }
+    
+# posts
+
+index:
+    path: /{_locale}
+    defaults: { _controller: AppBundle:Post:index, _locale: 'en' }
+    requirements:
+        _locale: en|fr|de
+
+new_post:
+    path: /new/post
+    defaults: { _controller: AppBundle:Post:new }
+    
+edit_post:
+    path: /edit/post/{id}
+    defaults: { _controller: AppBundle:Post:edit }
+    
+delete_post:
+    path: /delete/post/{id}
+    defaults: { _controller: AppBundle:Post:delete }
+    
+view_post:
+    path: /view/post/{id}
+    defaults: { _controller: AppBundle:Post:view }
+    
+# comments
+    
+view_comments:
+    path: /comments
+    defaults: { _controller: AppBundle:Comment:index }
+    
+edit_comment:
+    path: /edit/comment/{id}
+    defaults: { _controller: AppBundle:Comment:edit }
+    
+edit_comment:
+    path: /edit/comment/{id}
+    defaults: { _controller: AppBundle:Comment:edit }
+    
+new_comment:
+    path: /new/comment/{post_id}
+    defaults: { _controller: AppBundle:Comment:new }
