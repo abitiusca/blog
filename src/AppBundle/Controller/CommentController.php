@@ -32,7 +32,7 @@ class CommentController extends Controller
             $newComment->setUpdatedDate(0);
             
             $em = $this->getDoctrine()->getManager();
-            $entityPost = $em->getRepository('AppBundle:TblPosts')->findComment($post_id);
+            $entityPost = $em->getRepository('AppBundle:TblPosts')->findPost($post_id);
 
             if (!$entityPost) {
                 throw $this->createNotFoundException('Unable to find Post entity.');
